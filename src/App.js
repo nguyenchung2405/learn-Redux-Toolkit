@@ -8,14 +8,14 @@ function App() {
   const {cartItems,isLoading} = useSelector(state => state.cart);
   const {isOpen} = useSelector(state => state.modal);
   const dispatch = useDispatch();
-  
+
   useEffect(()=>{
     dispatch(calculateTotal());
-  },[cartItems])
+  },[cartItems,dispatch])
   
   useEffect(()=>{
     dispatch(getCartItems());
-  },[])
+  },[dispatch])
 
   if (isLoading) {
     return (
